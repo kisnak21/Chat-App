@@ -1,10 +1,20 @@
-import React from "react";
+import socketIO from "socket.io-client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import ChatPage from "./Pages/ChatPage";
+
+const socket = socketIO.connect("http://localhost:4000");
 
 const App = () => {
   return (
-    <div>
-      <h1>hello world</h1>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home socket={socket} />} />
+          <Route path="/chat" element={<ChatPage socket={socket} />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 

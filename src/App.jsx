@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import ChatPage from "./Pages/ChatPage";
 
-const socket = socketIO.connect("http://localhost:4000");
+const socket = socketIO.connect(
+  "https://chat-app-backend-production-756f.up.railway.app"
+);
 
 const App = () => {
   return (
